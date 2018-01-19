@@ -18,3 +18,5 @@ sites/all/themes/README.txt
 
 .DS_Store
 *.sql
+.env
+vendor/

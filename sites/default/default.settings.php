@@ -1,4 +1,7 @@
 <?php
+$loader = require __DIR__ . '/../../vendor/autoload.php';
+$dotenv = new Dotenv\Dotenv(__DIR__ . '/../..');
+$dotenv->load();
 
 /**
  * @file
@@ -244,7 +247,19 @@
  *   );
  * @endcode
  */
-$databases = array();
+$databases = array(
+  'default' =>
+  array (
+    'default' =>
+    array (
+      'database' => getenv('DB_NAME'),
+      'username' => getenv('DB_USER'),
+      'password' => getenv('DB_PASSWORD'),
+      'host' => getenv('DB_HOST'),
+      'port' => '',
+      'driver' => 'mysql',
+      'prefix' => '',
+)));
 
 /**
  * Access control for update.php script.
