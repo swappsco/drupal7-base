@@ -21,8 +21,6 @@ regions[sidebar_first] = Sidebar first
 regions[help] = Help
 regions[highlighted] = Highlighted
 regions[sidebar_second] = Sidebar second
-; 
-; default but hidden regions
 ; regions[page_top] = Page top
 ; regions[page_bottom] = Page bottom
 

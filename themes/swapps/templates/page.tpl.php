@@ -14,6 +14,12 @@
   <?php if ($page['header']): ?>
     <?php print render($page['header']); ?>
   <?php endif; ?>
+
+  <nav role="navigation">
+    <?php if ($main_menu): ?>
+      <?php print theme('links__system_main_menu', array('links' => $main_menu, 'attributes' => array('id' => 'main-menu'))); ?>
+    <?php endif; ?>
+  </nav>
   
   <?php if ($breadcrumb): ?>
     <div id="breadcrumb"><?php print $breadcrumb; ?></div>
