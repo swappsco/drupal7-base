@@ -1,0 +1,12 @@
+{
+  "name": "swapps",
+  "authors": [
+    "Swapps"
+  ],
+  "license": "MIT",
+  "private": true,
+  "dependencies": {
+    "bootstrap-sass": "^3.3.7",
+  },
+  "devDependencies": {}
+}
