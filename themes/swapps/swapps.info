@@ -5,7 +5,7 @@ version = 7.x-3.x-beta3
 core = 7.x
 
 stylesheets[all][] = dist/css/main.css
-stylesheets[all][] = css/style.css
+;scripts[] = dist/js/main.js
 ; stylesheet overwrites for modules
 ; stylesheets[all][] = _css/modules/system.menus.css
 ; can also be done with stylsheets-remove[] ans stylesheets-override[]

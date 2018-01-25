@@ -1,26 +1,32 @@
 <header role="banner" id="header">
-  <?php if ($logo): ?>
-    <div class="logo">
-      <?php if ($is_front): ?>
-        <img src="<?php print $logo; ?>" alt="logo Resource Flows" />
-      <?php else: ?>
-        <a href="<?php print $front_page; ?>" title="<?php print t('Home'); ?>" rel="home">
+  <div class="container-fluid">
+    <?php if ($logo): ?>
+      <div class="logo col-xs-12 col-sm-6 col-md-4">
+        <a href="<?php print $front_page; ?>" title="<?php print t('Home'); ?>" rel="home" class="navbar-brand">
           <img src="<?php print $logo; ?>" alt="logo Resource Flows" />
         </a>
-      <?php endif; ?>
-    </div>
-  <?php endif; ?>
-
-  <?php if ($page['header']): ?>
-    <?php print render($page['header']); ?>
-  <?php endif; ?>
-
-  <nav role="navigation">
-    <?php if ($main_menu): ?>
-      <?php print theme('links__system_main_menu', array('links' => $main_menu, 'attributes' => array('id' => 'main-menu'))); ?>
+        <?php if ($main_menu): ?>
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-collapse">
+            <span class="sr-only"><?php print t('Toggle navigation'); ?></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+        <?php endif; ?>
+      </div>
     <?php endif; ?>
-  </nav>
-  
+
+    <?php if ($page['header']): ?>
+      <?php print render($page['header']); ?>
+    <?php endif; ?>
+    <div class="col-xs-12 col-sm-6 col-md-8">
+      <nav role="navigation" class="navbar-collapse collapse" id="navbar-collapse">
+        <?php if ($main_menu): ?>
+          <?php print theme('links__system_main_menu', array('links' => $main_menu, 'attributes' => array('id' => 'main-menu', 'class' => 'nav navbar-nav navbar-right'))); ?>
+        <?php endif; ?>
+      </nav>
+    </div>
+  </div>
   <?php if ($breadcrumb): ?>
     <div id="breadcrumb"><?php print $breadcrumb; ?></div>
   <?php endif; ?>

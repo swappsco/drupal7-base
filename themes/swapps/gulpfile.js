@@ -27,7 +27,10 @@ gulp.task('sass', function() {
 })
 
 gulp.task('js', function() {
-  gulp.src(`${path.js}${'/scripts.js'}`)
+  gulp.src([
+    `${path.js}${'/scripts.js'}`,
+    `${path.vendor}/bootstrap/dist/js/bootstrap.js`,
+    ])
     .pipe(_.plumber({errorHandler: HandlersError}))
     .pipe(_.concat('main.js'))
     .pipe(gulp.dest(`${path.dist}/js`))
