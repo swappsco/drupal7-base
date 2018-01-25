@@ -4,8 +4,8 @@ description = Empty HTML5 theme, to start from when developing custom themes.
 version = 7.x-3.x-beta3
 core = 7.x
 
-stylesheets[all][] = css/default.css
 stylesheets[all][] = dist/css/main.css
+stylesheets[all][] = css/style.css
 ; stylesheet overwrites for modules
 ; stylesheets[all][] = _css/modules/system.menus.css
 ; can also be done with stylsheets-remove[] ans stylesheets-override[]

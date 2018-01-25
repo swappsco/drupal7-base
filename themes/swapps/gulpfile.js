@@ -6,6 +6,7 @@ var _ = require('gulp-load-plugins')({lazy: false})
 var cleanCSS = require('gulp-clean-css');
 var exec = require('child_process').exec
 var uncss = require('gulp-uncss');
+var notify = require("gulp-notify");
 
 var path = {
   sass: 'assets/styles/',

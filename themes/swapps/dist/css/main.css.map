@@ -1,0 +1,1 @@
+{"version":3,"file":"main.css","sources":["main.scss","_header.scss"],"sourcesContent":["@import \"header\";\n","#header{\n  background: #fff;\n  border-bottom: 1px solid black;\n}"],"mappings":"ACAA,AAAA,OAAO,AAAA,CACL,UAAU,CAAE,IAAK,CACjB,aAAa,CAAE,eAAgB,CAChC","names":[]}
