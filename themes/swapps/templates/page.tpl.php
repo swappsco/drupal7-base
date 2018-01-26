@@ -88,7 +88,29 @@
 </aside>
 
 <footer role="contentinfo" id="footer">
-  <?php if ($page['footer']): ?>
-    <?php print render($page['footer']); ?>
-  <?php endif; ?>
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024.45 100" style="position: relative;bottom: -10px;">
+    <polygon points="0 100 0 78.11 512.22 0 1024.44 78.11 1024.44 100 0 100" style="fill:#202020"></polygon>
+  </svg>
+  <div class="container-fluid bg-footer">
+    <div class="row">
+      <div class="col-xs-12">
+        <img src="<?php echo base_path().path_to_theme() ?>/footer-logo.png" alt="Footer Logo" class="footer_logo"/>
+      </div>
+    </div>
+    <?php if ($page['footer']): ?>
+      <?php print render($page['footer']); ?>
+    <?php endif; ?>
+    <?php 
+      $facebook = theme_get_setting('facebook');
+      $twitter = theme_get_setting('twitter');
+      $linkedin = theme_get_setting('linkedin');
+     ?>
+    <div class="row">
+      <div class="col-xs-12 text-center">
+        <p class="text-center copy">
+          Copyright © <?php print format_date(time(), 'custom', 'Y'); ?> - Todos los derechos reservados.
+        </p>
+      </div>
+    </div>
+  </div>
 </footer>
