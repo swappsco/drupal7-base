@@ -28,4 +28,26 @@ header{
       }
     }
   }
+  .header-social-networks{
+    .btn-social{
+      display: inline-block;
+      img{
+        width: 30px;
+      }
+    }
+    @media(min-width:768px){
+      float: right;
+      margin-top: 26px;
+      margin-left: 20px;
+    }
+    @media(max-width:767px){
+      margin: 15px 0;
+      text-align: center;
+      .btn-social{
+        img{
+          width: 40px;
+        }
+      }
+    }
+  }
 }

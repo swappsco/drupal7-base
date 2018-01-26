@@ -20,9 +20,33 @@
     <?php endif; ?>
     <div class="col-xs-12 col-sm-6 col-md-8">
       <nav role="navigation" class="navbar-collapse collapse" id="navbar-collapse">
-        <?php if ($main_menu): ?>
-          <?php print theme('links__system_main_menu', array('links' => $main_menu, 'attributes' => array('id' => 'main-menu', 'class' => 'nav navbar-nav navbar-right'))); ?>
-        <?php endif; ?>
+        <div class="navbar-right">
+          <?php 
+            $facebook = theme_get_setting('facebook');
+            $twitter = theme_get_setting('twitter');
+            $linkedin = theme_get_setting('linkedin');
+           ?>
+          <?php if ($main_menu): ?>
+            <?php print theme('links__system_main_menu', array('links' => $main_menu, 'attributes' => array('id' => 'main-menu', 'class' => 'nav navbar-nav'))); ?>
+          <?php endif; ?>
+          <div class="header-social-networks">
+            <?php if ($facebook):?>
+              <a href="<?php echo $facebook ?>" target="_blank" class="btn-social">
+                <img src="<?php echo base_path().path_to_theme() ?>/dist/images/facebook-black.svg" alt="facebook">
+              </a>
+            <?php endif ?>
+            <?php if ($twitter):?>
+              <a href="<?php echo $twitter ?>" target="_blank" class="btn-social">
+                <img src="<?php echo base_path().path_to_theme() ?>/dist/images/twitter-black.svg" alt="twitter">
+              </a>
+            <?php endif ?>
+            <?php if ($linkedin):?>
+              <a href="<?php echo $linkedin ?>" target="_blank" class="btn-social">
+                <img src="<?php echo base_path().path_to_theme() ?>/dist/images/linkedin-black.svg" alt="linkedin">
+              </a>
+            <?php endif ?>
+          </div>
+        </div>
       </nav>
     </div>
   </div>
@@ -106,6 +130,23 @@
       $linkedin = theme_get_setting('linkedin');
      ?>
     <div class="row">
+      <div class="col-sm-12 text-center social-networks">
+        <?php if ($facebook):?>
+          <a href="<?php echo $facebook ?>" target="_blank" class="btn-social">
+            <img src="<?php echo base_path().path_to_theme() ?>/dist/images/facebook-white.svg" alt="facebook">
+          </a>
+        <?php endif ?>
+        <?php if ($twitter):?>
+          <a href="<?php echo $twitter ?>" target="_blank" class="btn-social">
+            <img src="<?php echo base_path().path_to_theme() ?>/dist/images/twitter-white.svg" alt="twitter">
+          </a>
+        <?php endif ?>
+        <?php if ($linkedin):?>
+          <a href="<?php echo $linkedin ?>" target="_blank" class="btn-social">
+            <img src="<?php echo base_path().path_to_theme() ?>/dist/images/linkedin-white.svg" alt="linkedin">
+          </a>
+        <?php endif ?>
+      </div>
       <div class="col-xs-12 text-center">
         <p class="text-center copy">
           Copyright © <?php print format_date(time(), 'custom', 'Y'); ?> - Todos los derechos reservados.

@@ -7,10 +7,20 @@
     margin: 0 auto;
     padding: 15px 0;
   }
+  .social-networks{
+    padding: 15px 0;
+    .btn-social{
+      margin: 45px 0 5px 5px;
+      img{
+        width: 45px;
+      }
+    }
+  }
   p{
     font-size: 16px;
   }
   .copy{
+    padding: 15px 0;
     font-weight: 100;
     color: #fff;
   }
