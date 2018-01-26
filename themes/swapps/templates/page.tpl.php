@@ -15,6 +15,7 @@
         <?php endif; ?>
       </div>
     <?php endif; ?>
+
     <?php if ($page['header']): ?>
       <?php print render($page['header']); ?>
     <?php endif; ?>
@@ -27,6 +28,7 @@
       
     </div>
   </div>
+  
   <?php if ($breadcrumb): ?>
     <div id="breadcrumb"><?php print $breadcrumb; ?></div>
   <?php endif; ?>
