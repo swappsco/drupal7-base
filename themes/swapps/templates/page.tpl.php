@@ -15,7 +15,6 @@
         <?php endif; ?>
       </div>
     <?php endif; ?>
-
     <?php if ($page['header']): ?>
       <?php print render($page['header']); ?>
     <?php endif; ?>
@@ -25,12 +24,10 @@
           <?php print theme('links__system_main_menu', array('links' => $main_menu, 'attributes' => array('id' => 'main-menu', 'class' => 'nav navbar-nav navbar-right'))); ?>
         <?php endif; ?>
       </nav>
-      
     </div>
   </div>
-  
   <?php if ($breadcrumb): ?>
-    <div id="breadcrumb"><?php print $breadcrumb; ?></div>
+    <div id="breadcrumb"><?php // print $breadcrumb; ?></div>
   <?php endif; ?>
 </header>
 
