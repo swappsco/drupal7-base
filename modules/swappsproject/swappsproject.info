@@ -1,0 +1,5 @@
+name = Swapps Projects
+package = Core
+version = VERSION
+core = 7.x
+description = It's a simple module, where I can create project, edit and list them

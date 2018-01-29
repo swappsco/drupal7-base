@@ -1,7 +1,6 @@
 name = Swapps
 description = Empty HTML5 theme, to start from when developing custom themes.
-
-version = 7.x-3.x-beta3
+version = 7.x
 core = 7.x
 
 stylesheets[all][] = dist/css/main.css
@@ -25,9 +24,8 @@ settings[twitter]
 settings[linkedin]
 
 
-; Information added by drupal.org packaging script on 2012-03-01
 version = "7.x-3.0"
 core = "7.x"
-project = "swapps"
+project = "Swapps"
 datestamp = "1330596043"
 
