@@ -1,5 +1,6 @@
 name = Swapps Projects
-package = Core
+package = Swapps modules
 version = VERSION
 core = 7.x
-description = It's a simple module, where I can create project, edit and list them
+files[] = swappsproject.test
+description = It's a simple module, where you can create project, edit and list them

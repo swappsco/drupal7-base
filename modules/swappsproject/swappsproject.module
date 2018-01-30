@@ -1,41 +1,51 @@
 <?php
-function form_example_menu() {
+
+function form_project_menu() {
+
   $items = array();
-
-  $items['examples/form-example'] = array( //this creates a URL that will call this form at "examples/form-example"
-    'title' => 'Example Form', //page title
-    'description' => 'A form to mess around with.',
-    'page callback' => 'drupal_get_form', //this is the function that will be called when the page is accessed.  for a form, use drupal_get_form
-    'page arguments' => array('form_example_form'), //put the name of the form here
-    'access callback' => TRUE
+  $items['project/form_project'] = array(
+    'title' => 'Swapps Projects',
+    'page callback' => 'form_project_info',
+    'access callback' => TRUE,
+    'expanded' => TRUE,
   );
-
+  $items['project/form_project/create'] = array(
+    'title' => 'Create Project',
+    'page callback' => 'drupal_get_form',
+    'page arguments' => array('form_create_project'),
+    'access callback' => TRUE,
+    'description' => '',
+    //'file' => 'form_create_project.inc',
+  );
   return $items;
 }
 
-function form_example_form($form, &$form_state) {
+/**
+ * Page callback for our general info page.
+ */
+
+function form_project_info() {
+  $markup = t('Create Swapps projects');
+  return array('#markup' => $markup);
+}
+
+/**
+ * Create Project form.
+ */
+
+function form_create_project($form, &$form_state) {
   
- $form['price'] = array(
-    '#type' => 'textfield', //you can find a list of available types in the form api
-    '#title' => 'What is Your Price?',
+ $form['project'] = array(
+    '#type' => 'textfield',
+    '#title' => 'Project Name',
     '#size' => 10,
     '#maxlength' => 10,
-    '#required' => TRUE, //make this field required 
+    '#required' => TRUE,
   );
-
   $form['submit_button'] = array(
     '#type' => 'submit',
-    '#value' => t('Click Here!'),
+    '#value' => t('Save'),
   );
   
   return $form;
-}
-
-function form_example_form_validate($form, &$form_state) {
-  if (!($form_state['values']['price'] > 0)){
-    form_set_error('price', t('Price must be a positive number.'));
-  }
-}
-
-function form_example_form_submit($form, &$form_state) {
 }
