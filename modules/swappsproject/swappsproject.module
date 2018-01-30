@@ -31,15 +31,37 @@ function form_project_info() {
 
 /**
  * Create Project form.
- */
+Project
+Image
+
+CLIENT
+Name
+Country (Taxonomy)
+
+*/
+
 
 function form_create_project($form, &$form_state) {
   
  $form['project'] = array(
     '#type' => 'textfield',
     '#title' => 'Project Name',
-    '#size' => 10,
-    '#maxlength' => 10,
+    '#size' => 50,
+    '#maxlength' => 50,
+    '#required' => TRUE,
+  );
+  $form['url'] = array(
+    '#type' => 'textfield',
+    '#title' => 'URL Project',
+    '#size' => 100,
+    '#maxlength' => 100,
+    '#required' => TRUE,
+  );
+  $form['client'] = array(
+    '#type' => 'textfield',
+    '#title' => 'Client',
+    '#size' => 50,
+    '#maxlength' => 50,
     '#required' => TRUE,
   );
   $form['submit_button'] = array(
