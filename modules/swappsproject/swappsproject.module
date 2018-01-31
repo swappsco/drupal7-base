@@ -106,6 +106,16 @@ function _swappsproject_installed_fields() {
       'type'        => 'image',
       'cardinality' => 1,
     ),
+    'swappsproject_client_name' => array(
+      'field_name'  => 'swappsproject_client_name',
+      'cardinality' => 1,
+      'type'        => 'text',
+    ),
+    'swappsproject_country' => array(
+      'field_name'  => 'swappsproject_country',
+      'cardinality' => 1,
+      'type'        => 'text',
+    ),
   );
 }
 
@@ -156,5 +166,35 @@ function _swappsproject_installed_instances() {
         ),
       ),
     ),
+    'swappsproject_client_name' => array(
+      'field_name' => 'swappsproject_client_name',
+      'label' => t('Name of Client'),
+      'required'    => TRUE,
+      'type'        => 'text',
+      'widget' => array(
+        'type' => 'text_textfield'
+      ),
+      'display' => array(
+        'swappsproject_node_list' => array(
+          'label' => 'hidden',
+          'type' => 'hidden',
+        )
+      )
+    ),
+    'swappsproject_country' => array(
+      'field_name' => 'swappsproject_country',
+      'label' => t('Client'),
+      'required'    => FALSE,
+      'type'        => 'text',
+      'widget' => array(
+        'type' => 'text_textfield'
+      ),
+      'display' => array(
+        'swappsproject_node_list' => array(
+          'label' => 'hidden',
+          'type' => 'hidden',
+        )
+      )
+    )
   );
 }
