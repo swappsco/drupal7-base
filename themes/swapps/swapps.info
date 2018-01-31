@@ -12,11 +12,11 @@ regions[header] = Header
 regions[content] = Content
 regions[footer] = Footer
 regions[sidebar_first] = Sidebar first
+regions[sidebar_second] = Sidebar second
 regions[help] = Help
 regions[highlighted] = Highlighted
-regions[sidebar_second] = Sidebar second
-; regions[page_top] = Page top
-; regions[page_bottom] = Page bottom
+regions[page_top] = Page top
+regions[page_bottom] = Page bottom
 
 ; Custom settings
 settings[facebook]

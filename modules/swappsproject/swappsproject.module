@@ -1,20 +1,22 @@
 <?php
 
-function form_project_menu() {
+function swappsproject_menu() {
 
   $items = array();
+
   $items['project/form_project'] = array(
     'title' => 'Swapps Projects',
     'page callback' => 'form_project_info',
-    'access callback' => TRUE,
     'expanded' => TRUE,
+    'access callback' => TRUE,
+    //'access arguments' => array('access content'), 
   );
   $items['project/form_project/create'] = array(
     'title' => 'Create Project',
     'page callback' => 'drupal_get_form',
     'page arguments' => array('form_create_project'),
     'access callback' => TRUE,
-    'description' => '',
+    'description' => 'Creating a project',
     'type' => MENU_NORMAL_ITEM,
     //'file' => 'form_create_project.inc',
   );
@@ -41,34 +43,55 @@ Country (Taxonomy)
 
 */
 
-
 function form_create_project($form, &$form_state) {
-  
- $form['project'] = array(
+ $form['project_details'] = array(
+    '#type' => 'fieldset',
+    '#title' => t('Project'),
+  );
+ $form['project_details']['project'] = array(
     '#type' => 'textfield',
     '#title' => 'Project Name',
     '#size' => 50,
     '#maxlength' => 50,
     '#required' => TRUE,
   );
-  $form['url'] = array(
+  $form['project_details']['url'] = array(
     '#type' => 'textfield',
     '#title' => 'URL Project',
     '#size' => 100,
     '#maxlength' => 100,
     '#required' => TRUE,
   );
-  $form['client'] = array(
+  $form['project_details']['client'] = array(
     '#type' => 'textfield',
     '#title' => 'Client',
     '#size' => 50,
     '#maxlength' => 50,
     '#required' => TRUE,
   );
+  $form['client_details'] = array(
+    '#type' => 'fieldset',
+    '#title' => t('Client'),
+    '#group' => 'project_create',
+  );
+  $form['client_details']['client_name'] = array(
+    '#type' => 'textfield',
+    '#title' => 'Name',
+    '#size' => 50,
+    '#maxlength' => 50,
+    '#required' => TRUE,
+  );
+  $form['client_details']['client_country'] = array(
+    '#type' => 'textfield',
+    '#title' => 'Country',
+    '#size' => 50,
+    '#maxlength' => 50,
+    '#required' => TRUE,
+  );
+  
   $form['submit_button'] = array(
     '#type' => 'submit',
     '#value' => t('Save'),
   );
-  
   return $form;
 }
