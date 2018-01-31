@@ -1,97 +1,160 @@
 <?php
 
 function swappsproject_menu() {
-
-  $items = array();
-
-  $items['project/form_project'] = array(
-    'title' => 'Swapps Projects',
-    'page callback' => 'form_project_info',
-    'expanded' => TRUE,
-    'access callback' => TRUE,
-    //'access arguments' => array('access content'), 
-  );
-  $items['project/form_project/create'] = array(
-    'title' => 'Create Project',
-    'page callback' => 'drupal_get_form',
-    'page arguments' => array('form_create_project'),
-    'access callback' => TRUE,
-    'description' => 'Creating a project',
-    'type' => MENU_NORMAL_ITEM,
-    //'file' => 'form_create_project.inc',
+  $items['project/swapp_project'] = array(
+    'page callback' => 'swappsproject_page',
+    'access arguments' => array('access content'),
+    'title' => 'List of Projects',
   );
   return $items;
 }
 
 /**
- * Page callback for our general info page.
+ * Implements hook_node_info().
+ *
+ * We use hook_node_info() to define our node content type.
  */
-
-function form_project_info() {
-  $markup = t('Create Swapps projects');
-  return array('#markup' => $markup);
+function swappsproject_node_info() {
+  return array(
+    'swappsproject' => array(
+      'name' => t('Project'),
+      'base' => 'swappsproject',
+      'description' => t('You can create a new project here.'),
+      'has_title' => TRUE,
+      'title_label' => t('Project Name'),
+      // We'll set the 'locked' attribute to TRUE, so users won't be
+      // able to change the machine name of our content type.
+      'locked' => TRUE,
+     )
+  );
 }
 
 /**
- * Create Project form.
-Project
-Image
+ * Implements hook_node_type_insert().
+*/
+
+function swappsproject_node_type_insert($content_type) {
+  if ($content_type->type == 'swappsproject') {
+    $body_instance = node_add_body_field($content_type, t('Project Description'));
+    $body_instance['display']['swappsproject_node_list'] = array(
+      'label' => 'hidden',
+      'type' => 'text_summary_or_trimmed',
+    );
+    field_update_instance($body_instance);
+
+    foreach (_swappsproject_installed_fields() as $field) {
+      field_create_field($field);
+    }
+
+    foreach (_swappsproject_installed_instances() as $instance) {
+      $instance['entity_type'] = 'node';
+      $instance['bundle'] = 'swappsproject';
+      field_create_instance($instance);
+    }
+  }
+}
+
+/**
+ * Implements hook_form().
+ */
+
+function swappsproject_form($node, $form_state) {
+  return node_content_form($node, $form_state);
+}
+
+function swappsproject_page() {
+  $renderable_array = array();
+  $sql = 'SELECT nid FROM {node} n WHERE n.type = :type AND n.status = :status';
+  $result = db_query($sql,
+    array(
+      ':type' => 'swappsproject',
+      ':status' => 1,
+    )
+  );
+  $renderable_array['explanation'] = array(
+    '#markup' => t("Project you've created will be displayed here."),
+  );
+  foreach ($result as $row) {
+    $node = node_load($row->nid);
+    $renderable_array['node_list'][] = node_view($node, 'swappsproject_node_list');
+  }
+  return $renderable_array;
+}
+
+
+/*
 
 CLIENT
 Name
 Country (Taxonomy)
 
 */
+function _swappsproject_installed_fields() {
+  return array(
+    'swappsproject_url' => array(
+      'field_name'  => 'swappsproject_url',
+      'cardinality' => 1,
+      'type'        => 'text',
+    ),
+    'swappsproject_client' => array(
+      'field_name'  => 'swappsproject_client',
+      'cardinality' => 1,
+      'type'        => 'text',
+    ),
+    'swappsproject_image' => array(
+      'field_name'  => 'swappsproject_image',
+      'type'        => 'image',
+      'cardinality' => 1,
+    ),
+  );
+}
 
-function form_create_project($form, &$form_state) {
- $form['project_details'] = array(
-    '#type' => 'fieldset',
-    '#title' => t('Project'),
+function _swappsproject_installed_instances() {
+  return array(
+    'swappsproject_url' => array(
+      'field_name'  => 'swappsproject_url',
+      'label' => t('Project URL'),
+      'required'    => TRUE,
+      'type'        => 'text',
+      'widget'      => array(
+        'type'    => 'text_textfield',
+      ),
+      'display' => array(
+        'swappsproject_node_list' => array(
+          'label' => 'hidden',
+          'type' => 'hidden',
+        ),
+      ),
+    ),
+    'swappsproject_client' => array(
+      'field_name' => 'swappsproject_client',
+      'label' => t('Client'),
+      'required'    => TRUE,
+      'type'        => 'text',
+      'widget' => array(
+        'type' => 'text_textfield'
+      ),
+      'display' => array(
+        'swappsproject_node_list' => array(
+          'label' => 'hidden',
+          'type' => 'hidden',
+        )
+      )
+    ),
+    'swappsproject_image' => array(
+      'field_name'  => 'swappsproject_image',
+      'label'       => t('Upload an image:'),
+      'required'    => FALSE,
+      'widget' => array(
+        'type'    => 'image_image',
+        'weight'  => 5.10,
+      ),
+      'display' => array(
+        'swappsproject_node_list' => array(
+          'label' => 'hidden',
+          'type' => 'image_link_content__thumbnail',
+        ),
+      ),
+    ),
   );
- $form['project_details']['project'] = array(
-    '#type' => 'textfield',
-    '#title' => 'Project Name',
-    '#size' => 50,
-    '#maxlength' => 50,
-    '#required' => TRUE,
-  );
-  $form['project_details']['url'] = array(
-    '#type' => 'textfield',
-    '#title' => 'URL Project',
-    '#size' => 100,
-    '#maxlength' => 100,
-    '#required' => TRUE,
-  );
-  $form['project_details']['client'] = array(
-    '#type' => 'textfield',
-    '#title' => 'Client',
-    '#size' => 50,
-    '#maxlength' => 50,
-    '#required' => TRUE,
-  );
-  $form['client_details'] = array(
-    '#type' => 'fieldset',
-    '#title' => t('Client'),
-    '#group' => 'project_create',
-  );
-  $form['client_details']['client_name'] = array(
-    '#type' => 'textfield',
-    '#title' => 'Name',
-    '#size' => 50,
-    '#maxlength' => 50,
-    '#required' => TRUE,
-  );
-  $form['client_details']['client_country'] = array(
-    '#type' => 'textfield',
-    '#title' => 'Country',
-    '#size' => 50,
-    '#maxlength' => 50,
-    '#required' => TRUE,
-  );
-  
-  $form['submit_button'] = array(
-    '#type' => 'submit',
-    '#value' => t('Save'),
-  );
-  return $form;
 }
