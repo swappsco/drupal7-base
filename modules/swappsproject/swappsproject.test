@@ -30,7 +30,7 @@ class SwappsprojectTestCase extends DrupalWebTestCase {
    *   - Creates a view mode, swappsproject_list.
    */
 
-  public function testInstallationApi() {
+  /*public function testInstallationApi() {
     // At this point, the module should be installed.
     // First check for our content type.
     $node_type = node_type_get_type('swappsproject');
@@ -55,7 +55,7 @@ class SwappsprojectTestCase extends DrupalWebTestCase {
     $entities = entity_get_info('node');
     $this->assertTrue(isset($entities['view modes']['swappsproject_node_list']),
       'Added swappsproject_node_list view mode.', 'API');
-  }
+  }*/
 
   /**
    * Verify the functionality of the Swapps Project module.
@@ -87,7 +87,7 @@ class SwappsprojectTestCase extends DrupalWebTestCase {
    *
    * Checks whether body label has a value of "Swapps Project Description"
    */
-  public function testBodyLabel() {
+  /*public function testBodyLabel() {
     // Create and login user.
     $account = $this->drupalCreateUser(array('access content', 'create swappsproject content'));
     $this->drupalLogin($account);
@@ -99,5 +99,5 @@ class SwappsprojectTestCase extends DrupalWebTestCase {
     $this->drupalGet('node/add/swappsproject');
     $this->assertResponse(200, 'node/add/swappsproject page found');
     $this->assertRaw('<label for="edit-body-und-0-value">Swapps Project Description </label>', 'Body label equals \'Swapps Project Description\'');
-  }
+  }*/
 }
