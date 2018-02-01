@@ -9,7 +9,7 @@
  * Functionality tests for node example module.
  */
 class SwappsprojectTestCase extends DrupalWebTestCase {
-  
+
   public static function getInfo() {
     return array(
       'name' => 'Swapps Project',
@@ -73,7 +73,7 @@ class SwappsprojectTestCase extends DrupalWebTestCase {
       'swappsproject_client_name[und][0][value]' => 'Carlos',
       'swappsproject_country[und][0][value]' => 'Colombia',
     );
-    $this->drupalPost('node/add/swapps-project', $edit, t('Save'));
+    $this->drupalPost('node/add/swappsproject', $edit, t('Save'));
     $this->assertText("Swapps Project Type " . $edit['title'] . " has been created", "Found node creation message");
 
     // Look on the examples page to make sure it shows up there also.
@@ -96,8 +96,8 @@ class SwappsprojectTestCase extends DrupalWebTestCase {
     // Test whether the body label equals 'Swapps Project Description'.
     // Use '$this->assertRaw' to make certain to test the body label and not
     // some other text.
-    $this->drupalGet('node/add/swapps-project');
-    $this->assertResponse(200, 'node/add/swapps-project page found');
+    $this->drupalGet('node/add/swappsproject');
+    $this->assertResponse(200, 'node/add/swappsproject page found');
     $this->assertRaw('<label for="edit-body-und-0-value">Swapps Project Description </label>', 'Body label equals \'Swapps Project Description\'');
   }
 }
