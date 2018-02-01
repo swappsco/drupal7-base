@@ -68,6 +68,7 @@ class SwappsprojectTestCase extends DrupalWebTestCase {
      // Create node to edit.
     $edit = array(
       'title' => $this->randomName(),
+      'body[und][0][value]' => 'some description',
       'swappsproject_url[und][0][value]' => 'https://example.com',
       'swappsproject_client[und][0][value]' => 'Drupal',
       'swappsproject_client_name[und][0][value]' => 'Carlos',
