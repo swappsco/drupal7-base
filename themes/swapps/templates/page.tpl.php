@@ -149,7 +149,7 @@
       </div>
       <div class="col-xs-12 text-center">
         <p class="text-center copy">
-          Copyright © <?php print format_date(time(), 'custom', 'Y'); ?> - Todos los derechos reservados.
+          Copyright © <?php print format_date(time(), 'custom', 'Y'); ?> - All rights reserved.
         </p>
       </div>
     </div>
