@@ -153,7 +153,7 @@ function _swappsproject_installed_instances() {
     ),
     'swappsproject_image' => array(
       'field_name'  => 'swappsproject_image',
-      'label'       => t('Upload an image:'),
+      'label'       => t('Project image:'),
       'required'    => FALSE,
       'widget' => array(
         'type'    => 'image_image',
@@ -183,7 +183,7 @@ function _swappsproject_installed_instances() {
     ),
     'swappsproject_country' => array(
       'field_name' => 'swappsproject_country',
-      'label' => t('Client'),
+      'label' => t('Country of Client'),
       'required'    => FALSE,
       'type'        => 'text',
       'widget' => array(

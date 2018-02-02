@@ -54,62 +54,63 @@
     <div id="breadcrumb"><?php // print $breadcrumb; ?></div>
   <?php endif; ?>
 </header>
-
-<aside class="sidebar_first" role="complementary">
+<div class="body-content">
   <?php if ($page['sidebar_first']): ?>
-    <?php print render($page['sidebar_first']); ?>
-  <?php endif; ?>
-</aside>
-
-<?php
-/**
- * the skip-links link works on the main-content id
- * (see modules/system/html.tpl.php)
- */
-?>
-<div id="main-content" class="main" role="main">
-  <?php print render($title_prefix); ?>
-  <?php if ($title): ?>
-    <h1><?php print $title; ?></h1>
-  <?php else: ?>
-    <h1><?php print $site_name; ?></h1>
-  <?php endif; ?>
-  <?php print render($title_suffix); ?>
-
-  <?php if ($page['help']): ?>
-    <div class="help">
-      <?php print render($page['help']); ?>
-    </div>
-  <?php endif; ?>
-  
-  <?php if ($messages): ?>
-    <?php print $messages; ?>
+    <aside class="sidebar_first col-sm-12 col-md-4" role="complementary">
+      <?php print render($page['sidebar_first']); ?>
+    </aside>
   <?php endif; ?>
 
-  <?php if ($tabs): ?>
-    <?php print render($tabs); ?>
-  <?php endif; ?>
+  <?php
+  /**
+   * the skip-links link works on the main-content id
+   * (see modules/system/html.tpl.php)
+   */
+  ?>
+  <div id="main-content" class="main <?php if ($page['sidebar_first']): ?>col-sm-12 col-md-8<?php else: ?>container-fluid<?php endif; ?>" role="main">
+    <?php print render($title_prefix); ?>
+    <?php if ($title): ?>
+      <h1><?php print $title; ?></h1>
+    <?php else: ?>
+      <h1><?php print $site_name; ?></h1>
+    <?php endif; ?>
+    <?php print render($title_suffix); ?>
 
-  <?php if ($action_links): ?>
-    <ul class="action-links">
-    <?php print render($action_links); ?>
-    </ul>
-  <?php endif; ?>
+    <?php if ($page['help']): ?>
+      <div class="help">
+        <?php print render($page['help']); ?>
+      </div>
+    <?php endif; ?>
+    
+    <?php if ($messages): ?>
+      <?php print $messages; ?>
+    <?php endif; ?>
 
-  <?php if ($page['highlighted']): ?>
-    <div class="highlighted">
-      <?php print render($page['highlighted']); ?>
-    </div>
-  <?php endif; ?>
+    <?php if ($tabs): ?>
+      <?php print render($tabs); ?>
+    <?php endif; ?>
 
-  <?php print render($page['content']); ?>
+    <?php if ($action_links): ?>
+      <ul class="action-links">
+      <?php print render($action_links); ?>
+      </ul>
+    <?php endif; ?>
+
+    <?php if ($page['highlighted']): ?>
+      <div class="highlighted">
+        <?php print render($page['highlighted']); ?>
+      </div>
+    <?php endif; ?>
+
+    <?php print render($page['content']); ?>
+  </div>
+
+  <aside class="sidebar2" role="complementary">
+    <?php if ($page['sidebar_second']): ?>
+      <?php print render($page['sidebar_second']); ?>
+    <?php endif; ?>
+  </aside>
 </div>
-
-<aside class="sidebar2" role="complementary">
-  <?php if ($page['sidebar_second']): ?>
-    <?php print render($page['sidebar_second']); ?>
-  <?php endif; ?>
-</aside>
 
 <footer role="contentinfo" id="footer">
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024.45 100" style="position: relative;bottom: -10px;">

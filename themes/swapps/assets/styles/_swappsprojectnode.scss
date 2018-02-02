@@ -1,0 +1,18 @@
+.node-swappsproject{
+  background: #fff;
+  padding: 20px;
+  border-top: 2px solid $primary-color;
+  border-bottom: 2px solid $primary-color;
+  img{
+    width: 100%;
+    display: block;
+    height: auto;
+  }
+  .field-name-swappsproject-url,
+  .field-name-swappsproject-client,
+  .field-name-swappsproject-image,
+  .field-name-swappsproject-client-name,
+  .field-name-swappsproject-country{
+    margin-bottom: 10px;
+  }
+}

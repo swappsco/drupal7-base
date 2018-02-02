@@ -77,7 +77,6 @@
  */
 ?>
 <article id="node-<?php print $node->nid; ?>" class="<?php print $classes; ?> clearfix"<?php print $attributes; ?>>
-
   <?php if ($user_picture || !$page || $display_submitted): ?>
     <header>
       <?php print $user_picture; ?>
@@ -105,6 +104,9 @@
       hide($content['comments']);
       hide($content['links']);
       hide($content['field_tags']);
+      /*if ($view_mode === 'swappsproject_node_list') {
+        hide($content['swappsproject_image']);
+      }*/
       print render($content);
     ?>
   </div> <!-- /.content -->
