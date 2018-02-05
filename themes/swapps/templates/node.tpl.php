@@ -76,48 +76,54 @@
  * @see template_process()
  */
 ?>
-<article id="node-<?php print $node->nid; ?>" class="<?php print $classes; ?> clearfix"<?php print $attributes; ?>>
-  <?php if ($user_picture || !$page || $display_submitted): ?>
-    <header>
-      <?php print $user_picture; ?>
+<div class="<?php print $classes; ?> <?php print $view_mode ?>">
+  <article id="node-<?php print $node->nid; ?>" class="<?php print $classes; ?> clearfix"<?php print $attributes; ?>>
+    <?php if ($user_picture || !$page || $display_submitted): ?>
+      <header>
+        <?php print $user_picture; ?>
 
-      <?php print render($title_prefix); ?>
-      <?php if (!$page): ?>
-        <h2<?php print $title_attributes; ?>><a href="<?php print $node_url; ?>"><?php print $title; ?></a></h2>
-      <?php endif; ?>
-      <?php print render($title_suffix); ?>
+        <?php print render($title_prefix); ?>
+        <?php if (!$page): ?>
+          <h2<?php print $title_attributes; ?>><a href="<?php print $node_url; ?>"><?php print $title; ?></a></h2>
+        <?php endif; ?>
+        <?php print render($title_suffix); ?>
 
-      <?php if ($display_submitted): ?>
-        <p class="submitted">
-          <?php
-            print t('Submitted by !username on !datetime',
-              array('!username' => $name, '!datetime' => $date));
-          ?>
-        </p>
-      <?php endif; ?>
-    </header>
-  <?php endif; ?>
+        <?php if ($display_submitted): ?>
+          <p class="submitted">
+            <?php
+              print t('Submitted by !username on !datetime',
+                array('!username' => $name, '!datetime' => $date));
+            ?>
+          </p>
+        <?php endif; ?>
+      </header>
+    <?php endif; ?>
 
-  <div class="content"<?php print $content_attributes; ?>>
-    <?php
-      // We hide the comments, tags and links now so that we can render them later.
-      hide($content['comments']);
-      hide($content['links']);
-      hide($content['field_tags']);
-      /*if ($view_mode === 'swappsproject_node_list') {
-        hide($content['swappsproject_image']);
-      }*/
-      print render($content);
-    ?>
-  </div> <!-- /.content -->
+    <div class="content"<?php print $content_attributes; ?>>
+      <?php
+        // We hide the comments, tags and links now so that we can render them later.
+        hide($content['comments']);
+        hide($content['links']);
+        hide($content['field_tags']);
+        if ($view_mode === 'swappsproject_node_list') {
+          hide($content['body']);
+          hide($content['swappsproject_image']);
+          hide($content['swappsproject_url']);
+        }else{}
+        print render($content);
+      ?>
+    </div> <!-- /.content -->
 
-  <?php if (!empty($content['field_tags']) || !empty($content['links'])): ?>
-    <footer>
-      <?php print render($content['field_tags']); ?>
-      <?php print render($content['links']); ?>
-    </footer>
-  <?php endif; ?>
+    <?php if (!empty($content['field_tags']) || !empty($content['links'])): ?>
+      <footer>
+        <?php print render($content['field_tags']); ?>
+        <?php print render($content['links']); ?>
+      </footer>
+    <?php endif; ?>
 
-  <?php print render($content['comments']); ?>
+    <?php print render($content['comments']); ?>
 
-</article> <!-- /.node -->
+  </article>
+  
+</div>
+<!-- /.node -->

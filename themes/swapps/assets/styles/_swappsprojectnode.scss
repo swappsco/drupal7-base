@@ -1,4 +1,5 @@
-.node-swappsproject{
+.node-swappsproject.full,
+.swappsproject_node_list{
   background: #fff;
   padding: 20px;
   border-top: 2px solid $primary-color;
@@ -15,4 +16,7 @@
   .field-name-swappsproject-country{
     margin-bottom: 10px;
   }
+}
+.swappsproject_node_list{
+  margin-top: 20px;
 }
