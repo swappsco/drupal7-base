@@ -47,7 +47,16 @@
   <![endif]-->
   <?php print $scripts; ?>
 </head>
-<body>
+<?php
+  //get Page name
+  $name_of_page = (preg_replace('/\s+/', '_', $head_title));
+  $name_of_site = variable_get('site_name');
+  $site = (preg_replace('/\s+/', '_', $name_of_site));
+  $name = str_replace($site,"",$name_of_page);
+  $body_class = str_replace("_|_","",$name);
+  $lower_body_class = strtolower($body_class);
+?>
+<body class="<?php if ($lower_body_class): echo $lower_body_class;else:echo "swapps_body";endif;?>">
   <div id="skip-link">
     <a href="#main-content" class="element-invisible element-focusable"><?php print t('Skip to main content'); ?></a>
   </div>

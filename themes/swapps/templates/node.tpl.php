@@ -106,9 +106,11 @@
         hide($content['links']);
         hide($content['field_tags']);
         if ($view_mode === 'swappsproject_node_list') {
-          hide($content['body']);
           hide($content['swappsproject_image']);
           hide($content['swappsproject_url']);
+          hide($content['swappsproject_client']);
+          hide($content['swappsproject_country']);
+          hide($content['swappsproject_client_name']);
         }else{}
         print render($content);
       ?>

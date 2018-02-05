@@ -1,9 +1,24 @@
 .node-swappsproject.full,
-.swappsproject_node_list{
+.swappsproject_node_list,
+.node-swappsproject.teaser{
   background: #fff;
   padding: 20px;
   border-top: 2px solid $primary-color;
-  border-bottom: 2px solid $primary-color;
+  //border-bottom: 2px solid $primary-color;
+  h2{
+    a{
+      color: #333;
+    }
+    &:after{
+      content: '';
+      width: 40px;
+      height: 3px;
+      display: block;
+      margin-top: 10px;;
+      background: $primary-color;
+      margin-bottom: 20px;
+    }
+  }
   img{
     width: 100%;
     display: block;
@@ -16,7 +31,20 @@
   .field-name-swappsproject-country{
     margin-bottom: 10px;
   }
+  .username{
+    color: $primary-color-darker;
+  }
 }
-.swappsproject_node_list{
+.swappsproject_node_list,
+.node-swappsproject.teaser{
   margin-top: 20px;
+}
+.node-swappsproject.teaser{
+  .links.inline{
+    li{
+      a{
+        color: $primary-color-darker;
+      }
+    }
+  }
 }

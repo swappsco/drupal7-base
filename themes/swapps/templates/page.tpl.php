@@ -56,6 +56,7 @@
 </header>
 <div class="body-content">
   <?php if ($page['sidebar_first']): ?>
+    <div class="divider-first-sidebar"></div>
     <aside class="sidebar_first col-sm-12 col-md-4" role="complementary">
       <?php print render($page['sidebar_first']); ?>
     </aside>
@@ -68,41 +69,42 @@
    */
   ?>
   <div id="main-content" class="main <?php if ($page['sidebar_first']): ?>col-sm-12 col-md-8<?php else: ?>container-fluid<?php endif; ?>" role="main">
-    <?php print render($title_prefix); ?>
-    <?php if ($title): ?>
-      <h1><?php print $title; ?></h1>
-    <?php else: ?>
-      <h1><?php print $site_name; ?></h1>
-    <?php endif; ?>
-    <?php print render($title_suffix); ?>
+    <div class="content <?php if ($page['sidebar_first']): ?>sidebar<?php else: ?>full<?php endif; ?>">
+      <?php if ($title): ?>
+        <h1 class="title-page"><?php print $title; ?></h1>
+      <?php else: ?>
+        <h1><?php print $site_name; ?></h1>
+      <?php endif; ?>
+      <?php print render($title_suffix); ?>
 
-    <?php if ($page['help']): ?>
-      <div class="help">
-        <?php print render($page['help']); ?>
-      </div>
-    <?php endif; ?>
-    
-    <?php if ($messages): ?>
-      <?php print $messages; ?>
-    <?php endif; ?>
+      <?php if ($page['help']): ?>
+        <div class="help">
+          <?php print render($page['help']); ?>
+        </div>
+      <?php endif; ?>
+      
+      <?php if ($messages): ?>
+        <?php print $messages; ?>
+      <?php endif; ?>
 
-    <?php if ($tabs): ?>
-      <?php print render($tabs); ?>
-    <?php endif; ?>
+      <?php if ($tabs): ?>
+        <?php print render($tabs); ?>
+      <?php endif; ?>
 
-    <?php if ($action_links): ?>
-      <ul class="action-links">
-      <?php print render($action_links); ?>
-      </ul>
-    <?php endif; ?>
+      <?php if ($action_links): ?>
+        <ul class="action-links">
+        <?php print render($action_links); ?>
+        </ul>
+      <?php endif; ?>
 
-    <?php if ($page['highlighted']): ?>
-      <div class="highlighted">
-        <?php print render($page['highlighted']); ?>
-      </div>
-    <?php endif; ?>
+      <?php if ($page['highlighted']): ?>
+        <div class="highlighted">
+          <?php print render($page['highlighted']); ?>
+        </div>
+      <?php endif; ?>
 
-    <?php print render($page['content']); ?>
+      <?php print render($page['content']); ?>
+    </div>
   </div>
 
   <aside class="sidebar2" role="complementary">
