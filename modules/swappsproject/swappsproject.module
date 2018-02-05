@@ -64,7 +64,7 @@ function swappsproject_form($node, $form_state) {
 
 function swappsproject_page() {
   $renderable_array = array();
-  $sql = 'SELECT nid FROM {node} n WHERE n.type = :type AND n.status = :status';
+  $sql = 'SELECT nid FROM {node} n WHERE n.type = :type AND n.status = :status ORDER BY n.created DESC';
   $result = db_query($sql,
     array(
       ':type' => 'swappsproject',
@@ -81,14 +81,6 @@ function swappsproject_page() {
   return $renderable_array;
 }
 
-
-/*
-
-CLIENT
-Name
-Country (Taxonomy)
-
-*/
 function _swappsproject_installed_fields() {
   return array(
     'swappsproject_url' => array(
