@@ -5,6 +5,9 @@
   padding: 20px;
   border-top: 2px solid $primary-color;
   //border-bottom: 2px solid $primary-color;
+  &:first-child{
+    border-top: 0;
+  }
   h2{
     a{
       color: #333;
