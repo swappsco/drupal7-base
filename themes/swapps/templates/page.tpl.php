@@ -125,7 +125,7 @@
       </div>
     </div>
     <?php if ($page['footer']): ?>
-      <?php print render($page['footer']); ?>
+      <?php //print render($page['footer']); ?>
     <?php endif; ?>
     <?php 
       $facebook = theme_get_setting('facebook');
@@ -133,23 +133,25 @@
       $linkedin = theme_get_setting('linkedin');
      ?>
     <div class="row">
-      <div class="col-sm-12 text-center social-networks">
-        <?php if ($facebook):?>
-          <a href="<?php echo $facebook ?>" target="_blank" class="btn-social">
-            <img src="<?php echo base_path().path_to_theme() ?>/dist/images/facebook-white.svg" alt="facebook">
-          </a>
-        <?php endif ?>
-        <?php if ($twitter):?>
-          <a href="<?php echo $twitter ?>" target="_blank" class="btn-social">
-            <img src="<?php echo base_path().path_to_theme() ?>/dist/images/twitter-white.svg" alt="twitter">
-          </a>
-        <?php endif ?>
-        <?php if ($linkedin):?>
-          <a href="<?php echo $linkedin ?>" target="_blank" class="btn-social">
-            <img src="<?php echo base_path().path_to_theme() ?>/dist/images/linkedin-white.svg" alt="linkedin">
-          </a>
-        <?php endif ?>
-      </div>
+      <?php if ($facebook || $twitter || $linkedin):?>
+        <div class="col-sm-12 text-center social-networks">
+          <?php if ($facebook):?>
+            <a href="<?php echo $facebook ?>" target="_blank" class="btn-social">
+              <img src="<?php echo base_path().path_to_theme() ?>/dist/images/facebook-white.svg" alt="facebook">
+            </a>
+          <?php endif ?>
+          <?php if ($twitter):?>
+            <a href="<?php echo $twitter ?>" target="_blank" class="btn-social">
+              <img src="<?php echo base_path().path_to_theme() ?>/dist/images/twitter-white.svg" alt="twitter">
+            </a>
+          <?php endif ?>
+          <?php if ($linkedin):?>
+            <a href="<?php echo $linkedin ?>" target="_blank" class="btn-social">
+              <img src="<?php echo base_path().path_to_theme() ?>/dist/images/linkedin-white.svg" alt="linkedin">
+            </a>
+          <?php endif ?>
+        </div>
+      <?php endif ?>
       <div class="col-xs-12 text-center">
         <p class="text-center copy">
           Copyright © <?php print format_date(time(), 'custom', 'Y'); ?> - All rights reserved.
