@@ -87,15 +87,6 @@
           <h2<?php print $title_attributes; ?>><a href="<?php print $node_url; ?>"><?php print $title; ?></a></h2>
         <?php endif; ?>
         <?php print render($title_suffix); ?>
-
-        <?php if ($display_submitted): ?>
-          <p class="submitted">
-            <?php
-              print t('Submitted by !username on !datetime',
-                array('!username' => $name, '!datetime' => $date));
-            ?>
-          </p>
-        <?php endif; ?>
       </header>
     <?php endif; ?>
 
@@ -111,8 +102,22 @@
           hide($content['swappsproject_client']);
           hide($content['swappsproject_country']);
           hide($content['swappsproject_client_name']);
-        }else{}
-        print render($content);
+          print render($content['swappsproject_image']);
+          print render($content['body']);
+          echo '<a href="'. $node_url .'">Read More</a>';
+          if ($display_submitted): ?>
+            <div class="entry-meta">
+              <span class="date">
+                <i class="fa fa-lg fa-calendar" aria-hidden="true"></i><?php print $date ?>
+              </span>
+              <span class="author">
+                <i class="fa fa-lg fa-keyboard-o" aria-hidden="true"></i> <?php print $name ?>
+              </span>
+            </div>
+          <?php endif;
+        }else{
+          print render($content);
+        }
       ?>
     </div> <!-- /.content -->
 
