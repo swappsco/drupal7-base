@@ -103,12 +103,13 @@
           hide($content['swappsproject_country']);
           hide($content['swappsproject_client_name']);
           print render($content['swappsproject_image']);
-          print render($content['body']);
-          echo '<a href="'. $node_url .'">Read More</a>';
+          $text = render ($content['body']);
+          print(mb_strimwidth($text, 0, 400, '...'));
+          //echo '<a href="'. $node_url .'">Read more</a>';
           if ($display_submitted): ?>
             <div class="entry-meta">
               <span class="date">
-                <i class="fa fa-lg fa-calendar" aria-hidden="true"></i><?php print $date ?>
+                <i class="fa fa-lg fa-calendar" aria-hidden="true"></i><?php print date('F j, Y',$node->created) ?>
               </span>
               <span class="author">
                 <i class="fa fa-lg fa-keyboard-o" aria-hidden="true"></i> <?php print $name ?>
@@ -129,7 +130,6 @@
     <?php endif; ?>
 
     <?php print render($content['comments']); ?>
-
   </article>
   
 </div>

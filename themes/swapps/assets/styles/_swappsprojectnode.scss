@@ -3,10 +3,9 @@
 .node-swappsproject.teaser{
   background: #fff;
   padding: 20px;
-  border-top: 2px solid $primary-color;
-  //border-bottom: 2px solid $primary-color;
-  &:first-child{
-    border-top: 0;
+  border-bottom: 1px dashed #d8d4d4;
+  &:last-child{
+    border-bottom: 0;
   }
   h2{
     a{
@@ -39,6 +38,22 @@
   }
   .username{
     color: $primary-color-darker;
+  }
+  .entry-meta{
+    margin-top: 10px;
+    .date{
+      margin-right: 10px;
+      .fa{
+        margin-right: 5px;
+        color: #ccc;
+      }
+    }
+    .author{
+      .fa{
+        margin-right: 2px;
+        color: #ccc;
+      }
+    }
   }
 }
 .swappsproject_node_list,
