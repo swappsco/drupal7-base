@@ -3,6 +3,7 @@
 function swappsproject_menu() {
   $items['project/swapp_project'] = array(
     'page callback' => 'swappsproject_page',
+    'page arguments' => array(1),
     'access arguments' => array('access content'),
     'title' => 'List of Projects',
   );
