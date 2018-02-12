@@ -36,6 +36,13 @@
       display: none;
     }
   }
+  .field-name-body{
+    .field-item.even{
+      a{
+        color: $primary-color-darker;
+      }
+    }
+  }
   .username{
     color: $primary-color-darker;
   }
@@ -43,15 +50,24 @@
     margin-top: 10px;
     .date{
       margin-right: 10px;
+      color: #9c9a9a;
+      font-weight: 100;
       .fa{
-        margin-right: 5px;
         color: #ccc;
+        vertical-align: inherit;
       }
     }
     .author{
+      font-weight: 100;
       .fa{
         margin-right: 2px;
         color: #ccc;
+        vertical-align: inherit;
+      }
+      span{
+        a{
+          color: #9c9a9a !important;
+        }
       }
     }
   }

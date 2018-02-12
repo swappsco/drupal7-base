@@ -104,12 +104,13 @@
           hide($content['swappsproject_client_name']);
           print render($content['swappsproject_image']);
           $text = render ($content['body']);
-          print(mb_strimwidth($text, 0, 400, '...'));
+          print(mb_strimwidth($text, 0, 400, '... <a href="'. $node_url .'">Continued</a>'));
           //echo '<a href="'. $node_url .'">Read more</a>';
           if ($display_submitted): ?>
             <div class="entry-meta">
               <span class="date">
-                <i class="fa fa-lg fa-calendar" aria-hidden="true"></i><?php print date('F j, Y',$node->created) ?>
+                <i class="fa fa-lg fa-calendar" aria-hidden="true"></i>
+                <time><?php print date('F j, Y',$node->created) ?></time>
               </span>
               <span class="author">
                 <i class="fa fa-lg fa-keyboard-o" aria-hidden="true"></i> <?php print $name ?>
