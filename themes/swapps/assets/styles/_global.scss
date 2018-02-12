@@ -11,13 +11,6 @@ body{
       margin-top: 0;
     }
   }
-  .main{
-    background: #fff;
-    margin-top: 20px;
-  }
-  .sidebar_first{
-    margin-top: 20px;
-  }
 }
 .tabs.primary{
   height: 24px;
@@ -171,5 +164,17 @@ body{
     display: table;
     width: 100%;
     margin-bottom: 50px;
+  }
+}
+.list_of_projects{
+  .content.full{
+    padding: 0 20px;
+  }
+  .main{
+    background: #fff;
+    margin-top: 20px;
+  }
+  .sidebar_first{
+    margin-top: 20px;
   }
 }
