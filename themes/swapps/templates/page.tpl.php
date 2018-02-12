@@ -102,8 +102,14 @@
           <?php print render($page['highlighted']); ?>
         </div>
       <?php endif; ?>
+      <?php 
+        if ($node->type === 'swappsproject') {
+          include(drupal_get_path('theme', 'swapps').'/templates/project-detail.tpl.php');
+        }else{
+          print render($page['content']);
+        }
+      ?>
 
-      <?php print render($page['content']); ?>
     </div>
   </div>
 
