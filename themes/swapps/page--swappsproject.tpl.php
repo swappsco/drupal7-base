@@ -54,22 +54,15 @@
     <div id="breadcrumb"><?php // print $breadcrumb; ?></div>
   <?php endif; ?>
 </header>
-<div class="body-content">
-  <?php if ($page['sidebar_first']): ?>
-    <div class="divider-first-sidebar"></div>
-    <aside class="sidebar_first col-sm-12 col-md-4" role="complementary">
-      <?php print render($page['sidebar_first']); ?>
-    </aside>
-  <?php endif; ?>
-
+<div class="body-content project-detail">
   <?php
   /**
    * the skip-links link works on the main-content id
    * (see modules/system/html.tpl.php)
    */
   ?>
-  <div id="main-content" class="main <?php if ($page['sidebar_first']): ?>col-sm-12 col-md-8<?php else: ?>container-fluid<?php endif; ?>" role="main">
-    <div class="content <?php if ($page['sidebar_first']): ?>sidebar<?php else: ?>full<?php endif; ?>">
+  <div id="main-content" class="main" role="main">
+    <div class="container-fluid">
       <?php if ($title): ?>
         <h1 class="title-page"><?php print $title; ?></h1>
       <?php else: ?>
@@ -102,21 +95,45 @@
           <?php print render($page['highlighted']); ?>
         </div>
       <?php endif; ?>
-      <?php
-        print render($page['content']);
-      ?>
-
+      <div class="detail">
+        <div class="col-sm-7">
+          <img src="<?php echo file_create_url($node->swappsproject_image['und'][0]['uri']); ?>" alt="<?php print ($node->swappsproject_image['und'][0]['uri']); ?>" class="img-responsive">
+        </div>
+        <div class="col-sm-5">
+          <p class="description col-sm-12">
+            <?php echo ($node->body['und'][0]['value']); ?>
+          </p>
+          <p class="client-name col-xs-12">
+            <span class="text-center">
+              <i class="fa fa-user"></i>
+            </span>
+            <b>Client:</b> <span><?php echo ($node->swappsproject_client_name['und'][0]['value']); ?></span>
+          </p>
+          <p class="client col-xs-12">
+            <span class="text-center">
+              <i class="fa fa-wrench"></i>
+            </span>
+            <b>Tools:</b> <span><?php echo ($node->swappsproject_client['und'][0]['value']); ?></span>
+          </p>
+          <p class="country col-xs-12">
+            <span class="text-center">
+              <i class="fa fa-globe"></i>
+            </span>
+            <b>Country:</b> <span><?php echo ($node->swappsproject_country['und'][0]['value']); ?></span>
+          </p>
+          <p class="url col-xs-12">
+            <span class="text-center">
+              <i class="fa fa-link"></i>
+            </span>
+            <b>Web:</b> <a href="<?php echo ($node->swappsproject_url['und'][0]['value']); ?>" target="_blank" title="<?php print $title; ?>"><?php echo ($node->swappsproject_url['und'][0]['value']); ?></a>
+          </p>
+        </div>
+      </div>
     </div>
   </div>
-
-  <aside class="sidebar2" role="complementary">
-    <?php if ($page['sidebar_second']): ?>
-      <?php print render($page['sidebar_second']); ?>
-    <?php endif; ?>
-  </aside>
 </div>
 
-<footer role="contentinfo" id="footer">
+<footer role="contentinfo" id="footer" class="footer-project-detail">
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024.45 100" style="position: relative;bottom: -10px;">
     <polygon points="0 100 0 78.11 512.22 0 1024.44 78.11 1024.44 100 0 100" style="fill:#202020"></polygon>
   </svg>

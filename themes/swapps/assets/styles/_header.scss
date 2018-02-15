@@ -51,4 +51,10 @@
       }
     }
   }
+  @media (max-width: 767px){
+    .navbar-collapse{
+      border-top: 0;
+      box-shadow: none;
+    }
+  }
 }
