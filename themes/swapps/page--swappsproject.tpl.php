@@ -63,6 +63,12 @@
   ?>
   <div id="main-content" class="main" role="main">
     <div class="container-fluid">
+      <div class="row">
+        <div class="col-xs-12 text-center breadcrumbs">
+          <a href="/project/swapp_project">List of project</a>
+          <i class="fa fa-angle-double-right"></i>
+        </div>
+      </div>
       <?php if ($title): ?>
         <h1 class="title-page"><?php print $title; ?></h1>
       <?php else: ?>

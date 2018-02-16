@@ -2,9 +2,23 @@
   background: #fff;
   margin-top: 20px;
   padding-bottom: 60px;
+  .breadcrumbs{
+    margin-top: 30px;
+    a{
+      color: #333;
+      margin-right: 5px;
+      &:hover{
+        color: $primary-color;
+        text-decoration: none;
+      }
+    }
+    .fa{
+      color: #ccc;
+    }
+  }
   .title-page{
     text-align: center;
-    margin-top: 30px;
+    margin-top: 10px;
     margin-bottom: 40px;
     &:after{
       content: '';
