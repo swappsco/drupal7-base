@@ -103,7 +103,11 @@
       <?php endif; ?>
       <div class="detail">
         <div class="col-sm-7">
-          <img src="<?php echo file_create_url($node->swappsproject_image['und'][0]['uri']); ?>" alt="<?php print ($node->swappsproject_image['und'][0]['uri']); ?>" class="img-responsive">
+          <?php if (empty($node->swappsproject_image)):?>
+            <img src="<?php echo base_path().path_to_theme() ?>/dist/images/swapps-project-img.jpg" alt="swapps" class="img-responsive center-block">
+          <?php else: ?>
+            <img src="<?php echo file_create_url($node->swappsproject_image['und'][0]['uri']); ?>" alt="<?php print $title; ?>" class="img-responsive center-block">
+          <?php endif ?>
         </div>
         <div class="col-sm-5">
           <p class="description col-sm-12">
